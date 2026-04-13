@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Proyecto UISIL - Fabian Alfaro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .code-block {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .nav-item.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 h-screen flex">
+
+    <!-- Navegación Lateral -->
+    <nav class="w-64 bg-slate-900 text-white flex flex-col h-full shadow-xl">
+        <div class="p-6 border-b border-slate-800">
+            <h1 class="text-xl font-bold text-blue-400">PROYECTO UISIL</h1>
+            <p class="text-xs text-slate-400 mt-1">Sistemas Operativos</p>
+        </div>
+        
+        <div class="flex-1 py-4 px-2 space-y-1 overflow-y-auto">
+            <button onclick="goToSlide(0)" class="nav-item w-full text-left px-4 py-2 rounded-lg transition hover:bg-slate-800 flex items-center gap-3 active" id="btn-0">
+                <i class="fas fa-home w-5"></i> Inicio
+            </button>
+            <button onclick="goToSlide(1)" class="nav-item w-full text-left px-4 py-2 rounded-lg transition hover:bg-slate-800 flex items-center gap-3" id="btn-1">
+                <i class="fab fa-fedora w-5"></i> Fedora Linux
+            </button>
+            <button onclick="goToSlide(2)" class="nav-item w-full text-left px-4 py-2 rounded-lg transition hover:bg-slate-800 flex items-center gap-3" id="btn-2">
+                <i class="fas fa-globe w-5"></i> Servidor Web
+            </button>
+            <button onclick="goToSlide(3)" class="nav-item w-full text-left px-4 py-2 rounded-lg transition hover:bg-slate-800 flex items-center gap-3" id="btn-3">
+                <i class="fas fa-database w-5"></i> Base de Datos
+            </button>
+            <button onclick="goToSlide(4)" class="nav-item w-full text-left px-4 py-2 rounded-lg transition hover:bg-slate-800 flex items-center gap-3" id="btn-4">
+                <i class="fas fa-shield-alt w-5"></i> Respaldos
+            </button>
+            <button onclick="goToSlide(5)" class="nav-item w-full text-left px-4 py-2 rounded-lg transition hover:bg-slate-800 flex items-center gap-3" id="btn-5">
+                <i class="fas fa-microchip w-5"></i> Monitoreo
+            </button>
+            <button onclick="goToSlide(6)" class="nav-item w-full text-left px-4 py-2 rounded-lg transition hover:bg-slate-800 flex items-center gap-3" id="btn-6">
+                <i class="fas fa-check-circle w-5"></i> Conclusiones
+            </button>
+        </div>
+
+        <div class="p-4 bg-slate-950 text-xs text-slate-500">
+            Estudiante: Fabian Alfaro<br>
+            Prof: Jonathan Guido C.
+        </div>
+    </nav>
+
+    <!-- Contenedor Principal -->
+    <main class="flex-1 relative flex flex-col">
+        
+        <!-- Contenido de Diapositivas -->
+        <div class="flex-1 overflow-y-auto p-10 flex justify-center items-start">
+            <div class="max-w-4xl w-full">
+
+                <!-- SLIDE 0: INICIO -->
+                <section id="slide-0" class="slide active">
+                    <div class="glass-card p-12 rounded-3xl shadow-2xl text-center border-t-8 border-blue-500">
+                        <div class="flex justify-center mb-6">
+                            <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-server text-4xl text-blue-600"></i>
+                            </div>
+                        </div>
+                        <h1 class="text-4xl font-extrabold text-slate-800 mb-4 tracking-tight">Infraestructura de Servicios y Automatización en Linux</h1>
+                        <p class="text-xl text-slate-600 mb-8">Administración Avanzada de Fedora, Apache y PostgreSQL</p>
+                        <div class="grid grid-cols-2 gap-6 text-left max-w-lg mx-auto bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase">Institución</span>
+                                <span class="font-semibold text-slate-700">UISIL</span>
+                            </div>
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase">Carrera</span>
+                                <span class="font-semibold text-slate-700">Ingeniería en Sistemas</span>
+                            </div>
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase">Materia</span>
+                                <span class="font-semibold text-slate-700">Sistemas Operativos</span>
+                            </div>
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase">Presentado por</span>
+                                <span class="font-semibold text-slate-700">Fabian Alfaro</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 1: FEDORA -->
+                <section id="slide-1" class="slide">
+                    <div class="glass-card p-10 rounded-3xl shadow-lg border-l-8 border-blue-400">
+                        <div class="flex items-center gap-4 mb-6">
+                            <i class="fab fa-fedora text-4xl text-blue-500"></i>
+                            <h2 class="text-3xl font-bold text-slate-800">Plataforma Base: Fedora Linux</h2>
+                        </div>
+                        <p class="text-slate-600 mb-6 leading-relaxed">Se seleccionó Fedora 43 como el motor principal debido a su estabilidad y vanguardia tecnológica en entornos de servidor.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                                <h3 class="font-bold text-blue-600 mb-2 underline">Especificaciones VM</h3>
+                                <ul class="space-y-2 text-slate-700">
+                                    <li><i class="fas fa-memory mr-2 text-blue-400"></i> <strong>RAM:</strong> 4GB DDR4</li>
+                                    <li><i class="fas fa-hdd mr-2 text-blue-400"></i> <strong>Disco:</strong> 40GB Dinámico</li>
+                                    <li><i class="fas fa-microchip mr-2 text-blue-400"></i> <strong>Procesador:</strong> 2 Cores vCPU</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                                <h3 class="font-bold text-blue-600 mb-2 underline">Hitos de Instalación</h3>
+                                <ul class="space-y-2 text-slate-700">
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i> Particionado Btrfs automático</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i> Usuario administrativo (Sudoers)</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i> Host: <code>servidor-uisil.local</code></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 2: APACHE -->
+                <section id="slide-2" class="slide">
+                    <div class="glass-card p-10 rounded-3xl shadow-lg border-l-8 border-orange-400">
+                        <div class="flex items-center gap-4 mb-6">
+                            <i class="fas fa-globe text-4xl text-orange-500"></i>
+                            <h2 class="text-3xl font-bold text-slate-800">Servidor Web Multi-Dominio</h2>
+                        </div>
+                        <p class="text-slate-600 mb-6">Implementación de Apache HTTP Server para el alojamiento de múltiples Virtual Hosts.</p>
+                        <div class="space-y-4">
+                            <div class="flex gap-4 p-4 bg-white rounded-2xl shadow-sm items-center border border-slate-100">
+                                <div class="bg-orange-100 p-4 rounded-full text-orange-600 font-bold">01</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-800 text-lg">empresa.local</h4>
+                                    <p class="text-sm text-slate-500">Sitio Institucional con historia y servicios.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-white rounded-2xl shadow-sm items-center border border-slate-100">
+                                <div class="bg-blue-100 p-4 rounded-full text-blue-600 font-bold">02</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-800 text-lg">curso.local</h4>
+                                    <p class="text-sm text-slate-500">Sitio Informativo con fines académicos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-block mt-6">
+                            # Comando de Auditoría de Hosts<br>
+                            sudo httpd -S
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 3: POSTGRES -->
+                <section id="slide-3" class="slide">
+                    <div class="glass-card p-10 rounded-3xl shadow-lg border-l-8 border-indigo-500">
+                        <div class="flex items-center gap-4 mb-6">
+                            <i class="fas fa-database text-4xl text-indigo-500"></i>
+                            <h2 class="text-3xl font-bold text-slate-800">PostgreSQL: Gestión de Datos</h2>
+                        </div>
+                        <p class="text-slate-600 mb-6 italic">"Integridad y robustez para la base de datos uisil_sistema."</p>
+                        <div class="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 mb-6">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <p class="text-xs text-indigo-400 font-bold uppercase">Versión</p>
+                                    <p class="text-lg font-bold text-slate-800">18.3 stable</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-indigo-400 font-bold uppercase">Usuario Sistema</p>
+                                    <p class="text-lg font-bold text-slate-800">postgres (UID 26)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-100">
+                                <i class="fas fa-play-circle text-green-500"></i>
+                                <span class="text-slate-700">Status: <strong>Active (running)</strong></span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-100">
+                                <i class="fas fa-sync text-blue-500"></i>
+                                <span class="text-slate-700">Persistencia: <strong>Enabled</strong> (inicio automático)</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 4: BACKUPS -->
+                <section id="slide-4" class="slide">
+                    <div class="glass-card p-10 rounded-3xl shadow-lg border-l-8 border-green-500">
+                        <div class="flex items-center gap-4 mb-6">
+                            <i class="fas fa-shield-alt text-4xl text-green-500"></i>
+                            <h2 class="text-3xl font-bold text-slate-800">Automatización de Respaldos</h2>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-2xl mb-6">
+                            <h3 class="font-bold text-slate-700 mb-4">Lógica de `backups.sh`:</h3>
+                            <ol class="space-y-3">
+                                <li class="flex items-start gap-2">
+                                    <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mt-1">1</span>
+                                    <span class="text-slate-600">Extracción de datos mediante <code>pg_dump</code>.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mt-1">2</span>
+                                    <span class="text-slate-600">Compresión instantánea en formato <strong>.sql.gz</strong>.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mt-1">3</span>
+                                    <span class="text-slate-600">Registro histórico en <strong>backup_log.log</strong>.</span>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="p-4 bg-green-50 rounded-xl border border-green-100 flex items-center gap-4">
+                            <div class="text-2xl">⏰</div>
+                            <div>
+                                <p class="font-bold text-green-800">Frecuencia Crontab:</p>
+                                <p class="text-green-600 text-sm">Cada 12 minutos (<code>*/12 * * * *</code>)</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 5: MONITOREO -->
+                <section id="slide-5" class="slide">
+                    <div class="glass-card p-10 rounded-3xl shadow-lg border-l-8 border-red-500">
+                        <div class="flex items-center gap-4 mb-6">
+                            <i class="fas fa-eye text-4xl text-red-500"></i>
+                            <h2 class="text-3xl font-bold text-slate-800">Monitoreo y Alertas</h2>
+                        </div>
+                        <p class="text-slate-600 mb-6 leading-relaxed">Protección proactiva del hardware del servidor mediante el script <code>monitoreo.sh</code> ejecutado cada minuto.</p>
+                        
+                        <div class="bg-red-900 p-4 rounded-lg text-red-100 font-mono text-xs mb-6 shadow-inner">
+                            [2026-04-09 21:13:27] ALERTA: CPU excedido<br>
+                            Uso actual: 100%<br>
+                            Causa: gnome-shell (PID: 2078)
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="text-center p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <p class="text-xs font-bold text-slate-400 uppercase">CPU</p>
+                                <p class="text-lg font-bold text-red-600">> 80%</p>
+                            </div>
+                            <div class="text-center p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <p class="text-xs font-bold text-slate-400 uppercase">RAM</p>
+                                <p class="text-lg font-bold text-slate-800">> 80%</p>
+                            </div>
+                            <div class="text-center p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <p class="text-xs font-bold text-slate-400 uppercase">DISCO</p>
+                                <p class="text-lg font-bold text-slate-800">> 90%</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 6: CONCLUSIÓN -->
+                <section id="slide-6" class="slide">
+                    <div class="glass-card p-12 rounded-3xl shadow-2xl text-center border-t-8 border-slate-800">
+                        <h2 class="text-4xl font-bold text-slate-800 mb-8">Conclusión del Proyecto</h2>
+                        <div class="space-y-6 text-left max-w-2xl mx-auto mb-10 text-slate-700">
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-lightbulb text-yellow-500 mt-1"></i>
+                                <p><strong>Automatización:</strong> Se logró un entorno autosuficiente que gestiona sus propios respaldos y vigila su salud técnica.</p>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-layer-group text-blue-500 mt-1"></i>
+                                <p><strong>Arquitectura:</strong> El uso de Virtual Hosts y segmentación de datos garantiza escalabilidad y seguridad profesional.</p>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-rocket text-purple-500 mt-1"></i>
+                                <p><strong>Habilidad Técnica:</strong> Se consolidaron conocimientos prácticos de Bash, Servidores Web y Administración de Linux.</p>
+                            </div>
+                        </div>
+                        <div class="inline-block px-8 py-3 bg-slate-800 text-white rounded-full font-bold">
+                            Proyecto UISIL Completado
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- Controles Inferiores -->
+        <div class="h-20 bg-white border-t border-slate-200 flex items-center justify-between px-10">
+            <button onclick="prevSlide()" class="flex items-center gap-2 text-slate-500 hover:text-blue-600 font-semibold transition group">
+                <i class="fas fa-arrow-left transition group-hover:-translate-x-1"></i> Anterior
+            </button>
+            
+            <div class="flex gap-2" id="dots-container">
+                <!-- Se llenan con JS -->
+            </div>
+
+            <button onclick="nextSlide()" class="flex items-center gap-2 text-slate-500 hover:text-blue-600 font-semibold transition group">
+                Siguiente <i class="fas fa-arrow-right transition group-hover:translate-x-1"></i>
+            </button>
+        </div>
+    </main>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 7;
+
+        function updateSlide() {
+            // Ocultar todas
+            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.dot').forEach(d => d.classList.remove('bg-blue-600', 'bg-slate-300'));
+
+            // Mostrar actual
+            document.getElementById(`slide-${currentSlide}`).classList.add('active');
+            document.getElementById(`btn-${currentSlide}`).classList.add('active');
+            document.getElementById(`dot-${currentSlide}`).classList.add('bg-blue-600');
+            document.getElementById(`dot-${currentSlide}`).classList.add('w-8');
+            
+            // Ajustar dots no activos
+            document.querySelectorAll('.dot').forEach((d, idx) => {
+                if(idx !== currentSlide) {
+                    d.classList.add('bg-slate-300');
+                    d.classList.remove('w-8');
+                    d.classList.add('w-2');
+                }
+            });
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            updateSlide();
+        }
+
+        // Crear puntos indicadores
+        const dotsContainer = document.getElementById('dots-container');
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.id = `dot-${i}`;
+            dot.className = `dot h-2 rounded-full transition-all duration-300 cursor-pointer ${i === 0 ? 'bg-blue-600 w-8' : 'bg-slate-300 w-2'}`;
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'PageDown') nextSlide();
+            if (e.key === 'ArrowLeft' || e.key === 'PageUp') prevSlide();
+        });
+    </script>
+</body>
+</html>
